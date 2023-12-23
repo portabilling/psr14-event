@@ -1,0 +1,49 @@
+{
+    "name": "porta/psr14-events",
+    "description": "PortaOne ESPF event handling with PSR-14 dispatch",
+    "type": "library",
+    "homepage": "https://github.com/portabilling/psr14-event",
+    "keywords": ["Portaone", "billing", "api", "portastart", "event", "ESPF"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Pavlyuts",
+            "email": "alexey@pavlyuts.ru"
+        }
+    ],
+    "support": {
+        "email": "alexey@pavlyuts.ru",
+        "issues": "https://github.com/portabilling/psr14-events/issues",
+        "wiki": "https://github.com/portabilling/psr14-events/wiki",
+        "source": "https://github.com/portabilling/psr14-events",
+        "docs": "https://portabilling.github.io/psr14-events/"
+    },
+    "authors": [
+        {
+            "name": "Alexey Pavlyuts",
+            "email": "alexey@pavlyuts.ru"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0|^8.1|^8.2",
+        "psr/event-dispatcher": "^1.0.0",
+        "psr/http-message": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Porta\\Psr14\\": "Porta/Psr14"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6",
+        "guzzlehttp/psr7": "*"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Porta\\Test\\": "Test"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --configuration Test/configuration.xml Test --coverage-text"
+    }
+}

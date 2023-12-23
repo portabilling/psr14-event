@@ -1,0 +1,6 @@
+/nbproject/
+/vendor/
+/composer.lock
+!.gitkeep
+.phpunit.result.cache
+.phpdoc

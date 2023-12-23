@@ -196,7 +196,7 @@ class Event implements StoppableEventInterface, \ArrayAccess
     }
 
     // Access vars as array elements
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->vars[$offset]);
     }

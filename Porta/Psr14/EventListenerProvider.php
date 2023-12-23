@@ -87,7 +87,7 @@ class EventListenerProvider implements ListenerProviderInterface
      * @return iterable Must yield callable
      * @api
      */
-    protected function resolveHandler(mixed $handler): iterable
+    protected function resolveHandler($handler): iterable
     {
         return []; // Do nothing for basic ListenerProvider;
     }

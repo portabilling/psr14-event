@@ -201,17 +201,17 @@ class Event implements StoppableEventInterface, \ArrayAccess
         return isset($this->vars[$offset]);
     }
 
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet($offset)
     {
         return $this->vars[$offset];
     }
 
-    public function offsetSet(mixed $offset, mixed $value): void
+    public function offsetSet($offset, $value): void
     {
         // Do nothing, read only
     }
 
-    public function offsetUnset(mixed $offset): void
+    public function offsetUnset($offset): void
     {
         // Do nothing, read only
     }

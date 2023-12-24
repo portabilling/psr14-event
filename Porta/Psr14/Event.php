@@ -107,8 +107,10 @@ class Event implements StoppableEventInterface, \ArrayAccess
     /**
      * Event handler must call this to register processing failure
      *
-     * @param int $code HTTP error code to return. Consult Portaone documentation
-     * about return code meaning.
+     * See [Portaone documentation](https://docs.portaone.com/docs/mr105-receiving-provisional-events)
+     * about return code meaning and ESPF action on it.
+     *
+     * @param int $code HTTP error code to return.
      * @return void
      * @api
      */

@@ -33,16 +33,24 @@ try {
     // Perform basic auth using proper class using username 'eventUser' and
     // password 'eventPassword'
     // It returns same Event object if Ok or throw EventException with code 401
-    // on auth failure, but we do not need it to return here
-    (new AuthBasic('EventUser', 'eventPassword'))->authentificate($event);
+    // on auth failure. No need to reassign $event, just to show it returns.
+    $event = (new AuthBasic('EventUser', 'eventPassword'))->authentificate($event);
 
-    // create Listener Provider, create and register Handler
-    $provider = (new EventListenerProvider())
-            // Mind the args are arrays even has only single pattern and single handler
-            ->register(['*/BalanceChanged'], [new BalanceChangeHandler()]);
+    // Crate handler for event (see BalanceChangeHandleer.php)
+    $handler = new BalanceChangeHandler();
+
+    // create Listener Provider
+    $provider = new EventListenerProvider();
+
+    // Register the handler to ListenProvider
+    // Mind the args are arrays even has only single pattern and single handler
+    // Both 'Account/BalanceChanged' and 'Customer/BalanceChanged' types covered with
+    // one pattern
+    $provider->register(['*/BalanceChanged'], [$handler]);
 
     // Create Dispatcher and dispatch Event
-    (new Dispatcher($provider))->dispatch($event);
+    $dispatcher = new Dispatcher($provider);
+    $event = $dispatcher->dispatch($event);
 
     // Return the best return code to ESPF
     http_response_code($event->getBestResult());

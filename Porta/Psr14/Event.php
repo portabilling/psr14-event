@@ -6,7 +6,7 @@
 
 namespace Porta\Psr14;
 
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\RequestInterface;
 use Psr\EventDispatcher\StoppableEventInterface;
 
 /**
@@ -28,7 +28,7 @@ class Event implements StoppableEventInterface, \ArrayAccess
 
     protected string $type;
     protected array $vars;
-    protected ServerRequestInterface $request;
+    protected RequestInterface $request;
     protected bool $stopOnFirstGood = false;
     protected array $result = [];
 
@@ -42,7 +42,7 @@ class Event implements StoppableEventInterface, \ArrayAccess
      * and it's required fields.
      * @api
      */
-    public function __construct(ServerRequestInterface $request)
+    public function __construct(RequestInterface $request)
     {
         $this->request = $request;
         $this->parseData();
@@ -123,7 +123,7 @@ class Event implements StoppableEventInterface, \ArrayAccess
      * @return ServerRequestInterface
      * @api
      */
-    public function getRequest(): ServerRequestInterface
+    public function getRequest(): RequestInterface
     {
         return $this->request;
     }

@@ -7,7 +7,7 @@
 namespace Porta\Psr14\Auth;
 
 use Porta\Psr14\Event;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\RequestInterface;
 use Porta\Psr14\EventException;
 
 /**
@@ -21,7 +21,7 @@ abstract class Auth implements AuthInterface
     const DATE_HEADER = 'Date';
 
     protected $authHeader = 'Authorization';
-    protected ServerRequestInterface $request;
+    protected RequestInterface $request;
     protected string $authType;
     protected string $authValue;
     protected string $dateHeader;

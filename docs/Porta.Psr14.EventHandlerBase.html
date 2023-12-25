@@ -1,0 +1,329 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Class Porta\Psr14\EventHandlerBase | PSR-14 PortaBilling ESPF event handling API</title>
+	<link rel="stylesheet" href="assets/main.css">
+	<script src="assets/main.js" defer></script>
+</head>
+
+<body class="layout">
+	<div class="layout-aside">
+	<div class="menu">
+			<div class="menu-section">
+				<h3>Namespaces</h3>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Porta.html">Porta</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Porta.Psr14.html">Psr14</a>
+	<ul>
+			<li class="menuGroup-item">
+				<a href="namespace-Porta.Psr14.Auth.html">Auth</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Porta.Psr14.Example.html">Example</a>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</div>
+
+		<div class="menu-section">
+			<h3>Classes</h3>
+			<ul>
+					<li>
+						<a href="Porta.Psr14.Dispatcher.html">
+							Dispatcher
+						</a>
+					</li>
+					<li>
+						<a href="Porta.Psr14.Event.html">
+							Event
+						</a>
+					</li>
+					<li class="active">
+						<a href="Porta.Psr14.EventHandlerBase.html">
+							EventHandlerBase
+						</a>
+					</li>
+					<li>
+						<a href="Porta.Psr14.EventListenerProvider.html">
+							EventListenerProvider
+						</a>
+					</li>
+			</ul>
+		</div>
+
+
+
+
+		<div class="menu-section">
+			<h3>Exceptions</h3>
+			<ul>
+					<li>
+						<a href="Porta.Psr14.EventException.html">
+							EventException
+						</a>
+					</li>
+			</ul>
+		</div>
+
+	</div>
+	</div>
+
+	<div class="layout-main">
+		<div class="layout-navbar">
+	<nav class="navbar">
+		<div class="navbar-left">
+			<ul class="navbar-links">
+				<li>
+					<a href="index.html">Overview</a>
+				</li>
+				<li>
+					
+						<a href="namespace-Porta.Psr14.html">Namespace</a>
+					
+				</li>
+<li class="active"><a href="Porta.Psr14.EventHandlerBase.html">Class</a></li>				<li>
+					<a href="tree.html">Tree</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navbar-right">
+	<div class="search" data-elements="assets/elements.js">
+		<input class="search-input" placeholder="Search class, function or namespace" autofocus>
+		<ul class="search-results"></ul>
+	</div>
+		</div>
+	</nav>
+		</div>
+
+		<div class="layout-content">
+		<h1>
+			Class <a href="namespace-Porta.html">Porta</a>\<a href="namespace-Porta.Psr14.html">Psr14</a>\<a href="Porta.Psr14.EventHandlerBase.html">EventHandlerBase</a>
+		</h1>
+
+
+	<table class="classLikeSignatureTable">
+
+
+
+
+	</table>
+		<div class="classLikeDescription">
+	<div class="description"><p>Base class for event handler with routing of event type by methods</p>
+<p>To use, extend with your class and add methods which match desired event types.
+Method name laterally comes from event name by add prefix 'event' and remove
+slashes.
+Example: event type Subscriber/Created will use method to handle:</p>
+<pre><code>protected function eventSubscriberCreated(Event $event):void
+</code></pre>
+<p>Function <em>must</em> call $event-&gt;onSuccess() or $event-&gt;onFailure() to report the
+result of event processing</p>
+<p>See <a href="https://github.com/portabilling/psr14-events/tree/master/example">usage example</a></p>
+</div>
+		</div>
+
+			<div class="classLikeSection">
+	<ul class="classTree">
+	<li>
+<b><span class="active">Porta\Psr14\EventHandlerBase</span></b>
+
+
+	<ul class="classTree">
+	<li>
+<a href="Porta.Psr14.Example.BalanceChangeHandler.html"><span>Porta\Psr14\Example\BalanceChangeHandler</span></a>
+
+
+	</li>
+	</ul>
+	</li>
+	</ul>
+			</div>
+
+		<div class="classLikeSection">
+			<b>Located at</b> <a href="source-Porta.psr14.EventHandlerBase.html#27" title="Go to source code">Porta/psr14/EventHandlerBase.php</a><br>
+		</div>
+
+
+
+		<table class="table" id="methods">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="withNotFoundCode" id="_withNotFoundCode">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14.EventHandlerBase.html#32-47" title="Go to source code">withNotFoundCode</a>(<span>int <var>$code</var></span>): self</code>
+
+
+	<div class="expandable-collapsedView">
+		Set the return code for no method for an event.
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Set the return code for no method for an event.</p>
+<p>Default is 404 (not found). ESPF will log the error and remove event from
+queue
+Set code to 200 if it is Ok not to handle udefined events silently for ESPF.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$code</var>&nbsp;&nbsp;</td>
+										<td><p>code to return for undefined events</p>
+</td>
+									</tr>
+							</table>
+
+							<h4>Returns</h4>
+							<div><p>for chaining</p>
+</div>
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_withNotFoundCode">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="__invoke" id="___invoke">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14.EventHandlerBase.html#49-65" title="Go to source code">__invoke</a>(<span><a href="Porta.Psr14.Event.html"><span title="Porta\Psr14\Event">Event</span></a> <var>$event</var></span>): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Accept call and dispatch it to other method based on event type
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Accept call and dispatch it to other method based on event type</p>
+<p>Handling method name laterally comes from event type string by add
+prefix 'event' and remove slashes.
+Example: event type Subscriber/Created will use method to handle:</p>
+<pre><code>protected function eventSubscriberCreated(Event $event):void
+</code></pre>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#___invoke">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="__call" id="___call">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14.EventHandlerBase.html#67-84" title="Go to source code">__call</a>(<span><var>$name</var></span>, <span><var>$arguments</var></span>)</code>
+
+
+	<div class="expandable-collapsedView">
+		Catches all calls to undefined methods
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Catches all calls to undefined methods</p>
+<p>If __invoke() dispatch an event to undefined method, it will catch it,
+check that the first argument has Event type and, if so, register
+'not found' code to the Event instance.</p>
+<p>The code to use as 'not found' is 404 by default, but it could be change
+by withNotFoundCode() method. If you set it to 200, all undefined event
+types will return Ok to ESPF as it were normally processed.</p>
+</div>
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#___call">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+
+
+
+
+		<table class="table" id="properties">
+			<tr>
+				<th class="table-heading sortable" colspan="4" title="Switch between natural and alphabetical order">Properties</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="notFoundCode" id="$notFoundCode">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap"></code>
+			</td>
+
+			<td class="table-cell">
+<code><var><a href="source-Porta.psr14.EventHandlerBase.html#30" title="Go to source code">$notFoundCode</a></var> = <span class="php-num">404</span></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$notFoundCode">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+		</div>
+
+		<div class="layout-footer">
+			PSR-14 PortaBilling ESPF event handling API documentation generated by <a href="https://www.apigen.org">ApiGen v7.0.0-alpha.4</a>
+		</div>
+	</div>
+
+	<div class="layout-rest">
+		<div class="navbar"></div>
+	</div>
+</body>
+</html>

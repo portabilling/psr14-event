@@ -1,0 +1,397 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Class Porta\Psr14\EventListenerProvider | PSR-14 PortaBilling ESPF event handling API</title>
+	<link rel="stylesheet" href="assets/main.css">
+	<script src="assets/main.js" defer></script>
+</head>
+
+<body class="layout">
+	<div class="layout-aside">
+	<div class="menu">
+			<div class="menu-section">
+				<h3>Namespaces</h3>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Porta.html">Porta</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Porta.Psr14.html">Psr14</a>
+	<ul>
+			<li class="menuGroup-item">
+				<a href="namespace-Porta.Psr14.Auth.html">Auth</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Porta.Psr14.Example.html">Example</a>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</div>
+
+		<div class="menu-section">
+			<h3>Classes</h3>
+			<ul>
+					<li>
+						<a href="Porta.Psr14.Dispatcher.html">
+							Dispatcher
+						</a>
+					</li>
+					<li>
+						<a href="Porta.Psr14.Event.html">
+							Event
+						</a>
+					</li>
+					<li>
+						<a href="Porta.Psr14.EventHandlerBase.html">
+							EventHandlerBase
+						</a>
+					</li>
+					<li class="active">
+						<a href="Porta.Psr14.EventListenerProvider.html">
+							EventListenerProvider
+						</a>
+					</li>
+			</ul>
+		</div>
+
+
+
+
+		<div class="menu-section">
+			<h3>Exceptions</h3>
+			<ul>
+					<li>
+						<a href="Porta.Psr14.EventException.html">
+							EventException
+						</a>
+					</li>
+			</ul>
+		</div>
+
+	</div>
+	</div>
+
+	<div class="layout-main">
+		<div class="layout-navbar">
+	<nav class="navbar">
+		<div class="navbar-left">
+			<ul class="navbar-links">
+				<li>
+					<a href="index.html">Overview</a>
+				</li>
+				<li>
+					
+						<a href="namespace-Porta.Psr14.html">Namespace</a>
+					
+				</li>
+<li class="active"><a href="Porta.Psr14.EventListenerProvider.html">Class</a></li>				<li>
+					<a href="tree.html">Tree</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navbar-right">
+	<div class="search" data-elements="assets/elements.js">
+		<input class="search-input" placeholder="Search class, function or namespace" autofocus>
+		<ul class="search-results"></ul>
+	</div>
+		</div>
+	</nav>
+		</div>
+
+		<div class="layout-content">
+		<h1>
+			Class <a href="namespace-Porta.html">Porta</a>\<a href="namespace-Porta.Psr14.html">Psr14</a>\<a href="Porta.Psr14.EventListenerProvider.html">EventListenerProvider</a>
+		</h1>
+
+
+	<table class="classLikeSignatureTable">
+
+
+
+		<tr>
+			<th><code>implements</code></th>
+			<td>
+<code><a href="Psr.EventDispatcher.ListenerProviderInterface.html"><span title="Psr\EventDispatcher\ListenerProviderInterface">ListenerProviderInterface</span></a></code>			</td>
+		</tr>
+
+	</table>
+		<div class="classLikeDescription">
+	<div class="description"><p>Porta-Event specific ListenerProvider with extra features for Porta events</p>
+<p>Register event type patterns with register() methos and suppy the instance to
+PSR-14 dispatcher.</p>
+</div>
+		</div>
+
+
+		<div class="classLikeSection">
+			<b>Located at</b> <a href="source-Porta.psr14.EventListenerProvider.html#20" title="Go to source code">Porta/psr14/EventListenerProvider.php</a><br>
+		</div>
+
+
+
+		<table class="table" id="methods">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="register" id="_register">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14.EventListenerProvider.html#28-56" title="Go to source code">register</a>(<span>string[] <var>$patterns</var></span>, <span>mixed[] <var>$handlers</var></span>): self</code>
+
+
+	<div class="expandable-collapsedView">
+		Registre set of patterns to match and set of handlers to call if any pattern match
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Registre set of patterns to match and set of handlers to call if any pattern match</p>
+<p>While it is possible to setup multiple patterns and multiple handlers in
+one record, please be ecouraged to use 'one pattern to multiple handlers'
+or 'multiple patterns to one handler' approach.</p>
+<p>If your configuration will allow to call a handler meltiple times because
+it listed in two and more register() calls, and patterns will math - the
+same handler will be called multiple times.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$patterns</var>&nbsp;&nbsp;</td>
+										<td><p>Array of patterns to match agains event type.
+If any of array match the event type - all the handlers will run in order
+of given</p>
+</td>
+									</tr>
+									<tr>
+										<td><var>$handlers</var>&nbsp;&nbsp;</td>
+										<td><p>Array of handlers to run. Basically, it should ne array
+of callable, any item which is not callable will try to resolve to callable by
+resolveHandler(), which do nothing for this base class. Override it if you wish
+to resolve your definition into callable.</p>
+</td>
+									</tr>
+							</table>
+
+							<h4>Returns</h4>
+							<div><p>for chaining</p>
+</div>
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_register">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="getListenersForEvent" id="_getListenersForEvent">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14.EventListenerProvider.html#58-67" title="Go to source code">getListenersForEvent</a>(<span>object <var>$event</var></span>): iterable</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+		<h4>Implements</h4>
+		<ul>
+				<li>
+<a href="Psr.EventDispatcher.ListenerProviderInterface.html#_getListenersForEvent">						<code>Psr\EventDispatcher\ListenerProviderInterface::getListenersForEvent()</code></a>				</li>
+		</ul>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_getListenersForEvent">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="yieldHandlers" id="_yieldHandlers">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14.EventListenerProvider.html#69-78" title="Go to source code">yieldHandlers</a>(<span>array <var>$handlers</var></span>): iterable</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_yieldHandlers">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="resolveHandler" id="_resolveHandler">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14.EventListenerProvider.html#80-93" title="Go to source code">resolveHandler</a>(<span>mixed <var>$handler</var></span>): iterable</code>
+
+
+	<div class="expandable-collapsedView">
+		Method to override for add handler definitions other, that just callable
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Method to override for add handler definitions other, that just callable</p>
+<p>Also may be used to catch and log wrong callable problems. Override this
+method, log $handler value and return [] for other handler work.</p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$handler</var>&nbsp;&nbsp;</td>
+										<td><p>Handler definition</p>
+</td>
+									</tr>
+							</table>
+
+							<h4>Returns</h4>
+							<div><p>Must yield callable</p>
+</div>
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_resolveHandler">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+
+		<table class="table" id="constants">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Constants</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="PATTERNS" id="PATTERNS">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+				</code>
+			</td>
+
+			<td class="table-cell">
+<code><a href="source-Porta.psr14.EventListenerProvider.html#23" title="Go to source code">PATTERNS</a> = <span class="php-str">'patterns'</span></code>
+
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#PATTERNS">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="HANDLERS" id="HANDLERS">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+				</code>
+			</td>
+
+			<td class="table-cell">
+<code><a href="source-Porta.psr14.EventListenerProvider.html#24" title="Go to source code">HANDLERS</a> = <span class="php-str">'handlers'</span></code>
+
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#HANDLERS">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+
+
+		<table class="table" id="properties">
+			<tr>
+				<th class="table-heading sortable" colspan="4" title="Switch between natural and alphabetical order">Properties</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="handlers" id="$handlers">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">array</code>
+			</td>
+
+			<td class="table-cell">
+<code><var><a href="source-Porta.psr14.EventListenerProvider.html#26" title="Go to source code">$handlers</a></var> = []</code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$handlers">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+		</div>
+
+		<div class="layout-footer">
+			PSR-14 PortaBilling ESPF event handling API documentation generated by <a href="https://www.apigen.org">ApiGen v7.0.0-alpha.4</a>
+		</div>
+	</div>
+
+	<div class="layout-rest">
+		<div class="navbar"></div>
+	</div>
+</body>
+</html>

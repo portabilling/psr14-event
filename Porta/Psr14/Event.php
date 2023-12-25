@@ -12,11 +12,12 @@ use Psr\EventDispatcher\StoppableEventInterface;
 /**
  * PSR-14 Event object/class
  *
- * This obect is mutable and will pass over all the handlers, assuming the
- * handlers will process event and register rocessing result with onSuccess
- * or onFailure methods.
+ * This obect is mutable and will pass over all handlers, assuming
+ * handlers will process event and register зrocessing result with onSuccess()
+ * or onFailure() methods.
  *
- * Event vrs may be read either as array keyed values and as properties.
+ * Event vars are read-only and may be accessed either as array keyed values
+ * and as properties.
  *
  * @api
  */
@@ -33,13 +34,15 @@ class Event implements StoppableEventInterface, \ArrayAccess
     protected array $result = [];
 
     /**
-     * Creates event object from ServerRequestInterface object
+     * Creates event object from RequestInterface object
      *
      * Parse the request, check the format, detect all event parts.
      *
-     * @param ServerRequestInterface $request
+     * @param RequestInterface $request
+     * @return void
      * @throws EventException with code 400 in a case it can't detect JSON body
-     * and it's required fields.
+     * or required fields.
+     *
      * @api
      */
     public function __construct(RequestInterface $request)
@@ -50,6 +53,8 @@ class Event implements StoppableEventInterface, \ArrayAccess
 
     /**
      * Returns event type
+     *
+     * Returns ESPF event type like 'Account/BalanceChanged'
      *
      * @return string
      * @api
@@ -62,7 +67,7 @@ class Event implements StoppableEventInterface, \ArrayAccess
     /**
      * Return all event vars as associative array
      *
-     * @return array
+     * @return array<string, mixed>
      * @api
      */
     public function getVars(): array
@@ -71,9 +76,15 @@ class Event implements StoppableEventInterface, \ArrayAccess
     }
 
     /**
-     * Set event to stop propagate after first success happen
+     * Set event to stop propagate after first success (200) happen
      *
-     * @return self - for chaining
+     * If methos is called once, the Event is set to stop propagate after first
+     * succes code (200) registered by a handler.
+     *
+     * May be called either before dispatch or by handler. In the second case,
+     * the hahdler will be the last one and Event will stop it's propagation.
+     *
+     * @return self For chaining
      * @api
      */
     public function stopOnFirstGood(): self
@@ -86,7 +97,6 @@ class Event implements StoppableEventInterface, \ArrayAccess
      * Indicate to stop future processing by Dispatcher
      *
      * @return bool
-     * @api
      */
     public function isPropagationStopped(): bool
     {
@@ -95,6 +105,8 @@ class Event implements StoppableEventInterface, \ArrayAccess
 
     /**
      * Event handler must call this to register processing success
+     *
+     * The same meaning like to call onFailure(200), as 200 is the success code
      *
      * @return void
      * @api
@@ -107,8 +119,23 @@ class Event implements StoppableEventInterface, \ArrayAccess
     /**
      * Event handler must call this to register processing failure
      *
+     * Call of onFailure(200) hs the same means as onSuccess(), as 200 is the
+     * success code.
+     *
      * See [Portaone documentation](https://docs.portaone.com/docs/mr105-receiving-provisional-events)
-     * about return code meaning and ESPF action on it.
+     * about return code meaning and ESPF action on it:
+     *
+     * Once a response is received, the ESPF acts as follows:
+     * - 200 OK – the event has been received. The ESPF removes the event from
+     * the provisioning queue.
+     * - 4xx Client Error (e.g., 400 Bad Request) – the event must not be
+     * provisioned. The ESPF removes the event from the provisioning queue.
+     * - Other status code – an issue appeared during provisioning. The ESPF
+     * re-sends the event.
+     * - If no response is received from the Application during the timeout (300
+     * seconds by default) – the ESPF re-sends the event to the Application.
+     * Please make sure your application can accept the same provisioning event
+     * multiple times.
      *
      * @param int $code HTTP error code to return.
      * @return void
@@ -120,9 +147,9 @@ class Event implements StoppableEventInterface, \ArrayAccess
     }
 
     /**
-     * Returns origonal request object
+     * Returns original request object
      *
-     * @return ServerRequestInterface
+     * @return RequestInterface
      * @api
      */
     public function getRequest(): RequestInterface
@@ -131,12 +158,12 @@ class Event implements StoppableEventInterface, \ArrayAccess
     }
 
     /**
-     * Returns the worst (highest code) of registered results
+     * Returns the best (lowest code) of registered results
      *
-     * If there was no handlers return gived notfound value or default 404
+     * If there was no handlers return gived notfound code or default 404
      *
      * @param int $notFoundCode
-     * @return int
+     * @return int The best (lowest) code of all registered
      * @api
      */
     public function getBestResult(int $notFoundCode = 404): int
@@ -145,12 +172,12 @@ class Event implements StoppableEventInterface, \ArrayAccess
     }
 
     /**
-     * Returns the best (lowest code) of registered results
+     * Returns the worst (highest code) of registered results
      *
      * If there was no handlers return gived notfound value or default 404
      *
      * @param int $notFoundCode
-     * @return int
+     * @return int The worst (highest)code of all registered
      * @api
      */
     public function getWorstResult(int $notFoundCode = 404): int
@@ -165,8 +192,8 @@ class Event implements StoppableEventInterface, \ArrayAccess
      * any count of **letters, but not `/`**.
      *
      * Examples:
-     * - `'*\/BalanceChanged'` will match `'Customer/BalanceChanged'` and `'Account/BalanceChanged'`
-     * - `'Account/*locked'` will match `'Account/Blocked'` and `'Account/Unblocked'`
+     * - '&#x2a;/BalanceChanged' will match 'Customer/BalanceChanged' and 'Account/BalanceChanged'
+     * - 'Account/*locked' will match 'Account/Blocked' and 'Account/Unblocked'
      *
      * @param string[] $patterns Array of patterns to match
      * @return bool return true if match any of patterns

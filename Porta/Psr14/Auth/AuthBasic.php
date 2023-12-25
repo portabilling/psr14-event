@@ -11,7 +11,14 @@ use Porta\Psr14\EventException;
 /**
  * Class to perform basic authentification
  *
+ * Create an instance of class with password and username and then check Event
+ * for credentials:
+ * ```
+ * (new AuthBasic('username','pass'))->authentificate($event)
+ * ```
+ *
  * @api
+ * @package Auth
  */
 class AuthBasic extends Auth
 {
@@ -34,6 +41,9 @@ class AuthBasic extends Auth
         $this->password = $password;
     }
 
+    /**
+     * @internal
+     */
     protected function check(): void
     {
         if (($this->authType != self::AUTH_BASIC) ||

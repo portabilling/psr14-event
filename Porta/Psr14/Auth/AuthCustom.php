@@ -11,6 +11,14 @@ use Porta\Psr14\EventException;
 /**
  * Class to perform custom authentification
  *
+ * Create an instance of class with password and username and then check Event
+ * for credentials:
+ * ```
+ * (new AuthBasic('customType','customValue'))->authentificate($event)
+ * ```
+ *
+ * @api
+ * @package Auth
  */
 class AuthCustom extends Auth
 {
@@ -31,6 +39,11 @@ class AuthCustom extends Auth
         $this->customValue = $customValue;
     }
 
+    /**
+     * @internal 
+     * @return void
+     * @throws EventException
+     */
     protected function check(): void
     {
         if (($this->authType != $this->customeType) ||

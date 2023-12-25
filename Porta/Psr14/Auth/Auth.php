@@ -11,9 +11,10 @@ use Psr\Http\Message\RequestInterface;
 use Porta\Psr14\EventException;
 
 /**
- * Base class for event call authentification
+ * Abstract sase class for event call authentification
  *
  * @api
+ * @package Auth
  */
 abstract class Auth implements AuthInterface
 {
@@ -27,7 +28,11 @@ abstract class Auth implements AuthInterface
     protected string $dateHeader;
 
     /**
-     * Changes auth header
+     * Set class to use custom auth header
+     *
+     * PortaBilling support use of custom header instead of 'Aithorization:'.
+     * If you use custom header, use this method. You may chain it as
+     * `(new AuthBasic($user,$pass))->withAuthHeader('Verify');`
      *
      * @param string $header - alternate auth header
      * @return self for chaining
@@ -40,7 +45,16 @@ abstract class Auth implements AuthInterface
     }
 
     /**
-     * @inheritDoc
+     * Perform authentification
+     *
+     * The method takes Event, retrieves auth data and perform authentification.
+     * - In a case of success it returns the Event itself.
+     * - In a case of failure it will throw EventException with code 401
+     *
+     * @param Event $event
+     * @return Event For chaining the methid with other methods
+     * @throws EventException with code 401 in a case of failure
+     * @api
      */
     public function authentificate(Event $event): Event
     {
@@ -51,7 +65,9 @@ abstract class Auth implements AuthInterface
     }
 
     /**
-     * Function to perform auth check
+     * Abstract method to perform auth check
+     *
+     * Override this to implement exact auth method
      *
      * @throws EventException with code 401 in a case of authfailure
      * @api

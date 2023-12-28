@@ -1,0 +1,522 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Class Porta\Psr14Event\Auth\Auth | PSR-14 PortaBilling ESPF event handling API</title>
+	<link rel="stylesheet" href="assets/main.css">
+	<script src="assets/main.js" defer></script>
+</head>
+
+<body class="layout">
+	<div class="layout-aside">
+	<div class="menu">
+			<div class="menu-section">
+				<h3>Namespaces</h3>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Porta.html">Porta</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Porta.Psr14Event.html">Psr14Event</a>
+	<ul>
+			<li class="menuGroup-item active">
+				<a href="namespace-Porta.Psr14Event.Auth.html">Auth</a>
+			</li>
+			<li class="menuGroup-item">
+				<a href="namespace-Porta.Psr14Event.Example.html">Example</a>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</li>
+	</ul>
+			</div>
+
+		<div class="menu-section">
+			<h3>Classes</h3>
+			<ul>
+					<li class="active">
+						<a href="Porta.Psr14Event.Auth.Auth.html">
+							Auth
+						</a>
+					</li>
+					<li>
+						<a href="Porta.Psr14Event.Auth.AuthBasic.html">
+							AuthBasic
+						</a>
+					</li>
+					<li>
+						<a href="Porta.Psr14Event.Auth.AuthCustom.html">
+							AuthCustom
+						</a>
+					</li>
+			</ul>
+		</div>
+
+		<div class="menu-section">
+			<h3>Interfaces</h3>
+			<ul>
+					<li>
+						<a href="Porta.Psr14Event.Auth.AuthInterface.html">
+							AuthInterface
+						</a>
+					</li>
+			</ul>
+		</div>
+
+
+
+
+	</div>
+	</div>
+
+	<div class="layout-main">
+		<div class="layout-navbar">
+	<nav class="navbar">
+		<div class="navbar-left">
+			<ul class="navbar-links">
+				<li>
+					<a href="index.html">Overview</a>
+				</li>
+				<li>
+					
+						<a href="namespace-Porta.Psr14Event.Auth.html">Namespace</a>
+					
+				</li>
+<li class="active"><a href="Porta.Psr14Event.Auth.Auth.html">Class</a></li>				<li>
+					<a href="tree.html">Tree</a>
+				</li>
+			</ul>
+		</div>
+		<div class="navbar-right">
+	<div class="search" data-elements="assets/elements.js">
+		<input class="search-input" placeholder="Search class, function or namespace" autofocus>
+		<ul class="search-results"></ul>
+	</div>
+		</div>
+	</nav>
+		</div>
+
+		<div class="layout-content">
+		<h1>
+			Class <a href="namespace-Porta.html">Porta</a>\<a href="namespace-Porta.Psr14Event.html">Psr14Event</a>\<a href="namespace-Porta.Psr14Event.Auth.html">Auth</a>\<a href="Porta.Psr14Event.Auth.Auth.html">Auth</a>
+		</h1>
+
+
+	<table class="classLikeSignatureTable">
+			<tr><th><code>abstract</code></th></tr>
+
+
+		<tr>
+			<th><code>implements</code></th>
+			<td>
+<code><a href="Porta.Psr14Event.Auth.AuthInterface.html"><span title="Porta\Psr14Event\Auth\AuthInterface">AuthInterface</span></a></code>			</td>
+		</tr>
+
+	</table>
+		<div class="classLikeDescription">
+	<div class="description"><p>Abstract sase class for event call authentification</p>
+</div>
+		</div>
+
+			<div class="classLikeSection">
+	<ul class="classTree">
+	<li>
+<b><span class="active">Porta\Psr14Event\Auth\Auth</span></b>
+
+		implements
+			<a href="Porta.Psr14Event.Auth.AuthInterface.html"><span title="Porta\Psr14Event\Auth\AuthInterface">AuthInterface</span></a>
+
+	<ul class="classTree">
+	<li>
+<a href="Porta.Psr14Event.Auth.AuthBasic.html"><span>Porta\Psr14Event\Auth\AuthBasic</span></a>
+
+
+	</li>
+	<li>
+<a href="Porta.Psr14Event.Auth.AuthCustom.html"><span>Porta\Psr14Event\Auth\AuthCustom</span></a>
+
+
+	</li>
+	</ul>
+	</li>
+	</ul>
+			</div>
+
+		<div class="classLikeSection">
+			<b>Located at</b> <a href="source-Porta.psr14Event.Auth.Auth.html#19" title="Go to source code">Porta/psr14Event/Auth/Auth.php</a><br>
+		</div>
+
+
+
+		<table class="table" id="methods">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Methods</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="withAuthHeader" id="_withAuthHeader">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14Event.Auth.Auth.html#30-45" title="Go to source code">withAuthHeader</a>(<span>string <var>$header</var></span>): self</code>
+
+
+	<div class="expandable-collapsedView">
+		Set class to use custom auth header
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Set class to use custom auth header</p>
+<p>PortaBilling support use of custom header instead of 'Aithorization:'.
+If you use custom header, use this method. You may chain it as
+<code>(new AuthBasic($user,$pass))-&gt;withAuthHeader('Verify');</code></p>
+</div>
+
+							<h4>Parameters</h4>
+							<table>
+									<tr>
+										<td><var>$header</var>&nbsp;&nbsp;</td>
+										<td><ul>
+<li>alternate auth header</li>
+</ul>
+</td>
+									</tr>
+							</table>
+
+							<h4>Returns</h4>
+							<div><p>for chaining</p>
+</div>
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_withAuthHeader">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="authentificate" id="_authentificate">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14Event.Auth.Auth.html#47-65" title="Go to source code">authentificate</a>(<span><a href="Porta.Psr14Event.Event.html"><span title="Porta\Psr14Event\Event">Event</span></a> <var>$event</var></span>): <a href="Porta.Psr14Event.Event.html"><span title="Porta\Psr14Event\Event">Event</span></a></code>
+
+
+	<div class="expandable-collapsedView">
+		Perform authentification
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Perform authentification</p>
+<p>The method takes Event, retrieves auth data and perform authentification.</p>
+<ul>
+<li>In a case of success it returns the Event itself.</li>
+<li>In a case of failure it will throw EventException with code 401</li>
+</ul>
+</div>
+
+
+							<h4>Returns</h4>
+							<div><p>For chaining the methid with other methods</p>
+</div>
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Porta.Psr14Event.EventException.html"><span>Porta\Psr14Event\EventException</span></a></code>&nbsp;</td>
+										<td><p>with code 401 in a case of failure</p>
+</td>
+									</tr>
+							</table>
+
+		<h4>Implements</h4>
+		<ul>
+				<li>
+<a href="Porta.Psr14Event.Auth.AuthInterface.html#_authentificate">						<code>Porta\Psr14Event\Auth\AuthInterface::authentificate()</code></a>				</li>
+		</ul>
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_authentificate">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="check" id="_check">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					abstract
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14Event.Auth.Auth.html#67-75" title="Go to source code">check</a>(): void</code>
+
+
+	<div class="expandable-collapsedView">
+		Abstract method to perform auth check
+	</div>
+
+	<div class="expandable-expandedView">
+	<div class="description"><p>Abstract method to perform auth check</p>
+<p>Override this to implement exact auth method</p>
+</div>
+
+
+
+							<h4>Throws</h4>
+							<table>
+									<tr>
+										<td><code><a href="Porta.Psr14Event.EventException.html"><span>Porta\Psr14Event\EventException</span></a></code>&nbsp;</td>
+										<td><p>with code 401 in a case of authfailure</p>
+</td>
+									</tr>
+							</table>
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_check">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="parseData" id="_parseData">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14Event.Auth.Auth.html#77-86" title="Go to source code">parseData</a>(): void</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_parseData">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="extractHeader" id="_extractHeader">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell">
+				<code><a href="source-Porta.psr14Event.Auth.Auth.html#88-95" title="Go to source code">extractHeader</a>(<span>string <var>$headerName</var></span>): string</code>
+
+
+
+	<div class="expandable-expandedView">
+
+
+
+
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#_extractHeader">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+
+		<table class="table" id="constants">
+			<tr>
+				<th class="table-heading sortable" colspan="3" title="Switch between natural and alphabetical order">Constants</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="DATE_HEADER" id="DATE_HEADER">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+					
+	public
+				</code>
+			</td>
+
+			<td class="table-cell">
+<code><a href="source-Porta.psr14Event.Auth.Auth.html#22" title="Go to source code">DATE_HEADER</a> = <span class="php-str">'Date'</span></code>
+
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#DATE_HEADER">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+
+
+		<table class="table" id="properties">
+			<tr>
+				<th class="table-heading sortable" colspan="4" title="Switch between natural and alphabetical order">Properties</th>
+			</tr>
+
+	<tr class="expandable collapsed" data-order="authHeader" id="$authHeader">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap"></code>
+			</td>
+
+			<td class="table-cell">
+<code><var><a href="source-Porta.psr14Event.Auth.Auth.html#24" title="Go to source code">$authHeader</a></var> = <span class="php-str">'Authorization'</span></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$authHeader">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="request" id="$request">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap"><a href="Psr.Http.Message.RequestInterface.html"><span title="Psr\Http\Message\RequestInterface">RequestInterface</span></a></code>
+			</td>
+
+			<td class="table-cell">
+<code><var><a href="source-Porta.psr14Event.Auth.Auth.html#25" title="Go to source code">$request</a></var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$request">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="authType" id="$authType">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">string</code>
+			</td>
+
+			<td class="table-cell">
+<code><var><a href="source-Porta.psr14Event.Auth.Auth.html#26" title="Go to source code">$authType</a></var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$authType">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="authValue" id="$authValue">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">string</code>
+			</td>
+
+			<td class="table-cell">
+<code><var><a href="source-Porta.psr14Event.Auth.Auth.html#27" title="Go to source code">$authValue</a></var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$authValue">#</a>
+		</td>
+	</tr>
+	<tr class="expandable collapsed" data-order="dateHeader" id="$dateHeader">
+			<td class="table-cell table-shrink">
+				<code class="nowrap">
+	protected
+					
+					
+				</code>
+			</td>
+
+			<td class="table-cell table-shrink">
+				<code class="nowrap">string</code>
+			</td>
+
+			<td class="table-cell">
+<code><var><a href="source-Porta.psr14Event.Auth.Auth.html#28" title="Go to source code">$dateHeader</a></var></code>
+				
+
+	<div class="expandable-expandedView">
+	</div>
+			</td>
+		<td class="table-anchor">
+			<a href="#$dateHeader">#</a>
+		</td>
+	</tr>
+		</table>
+
+
+		</div>
+
+		<div class="layout-footer">
+			PSR-14 PortaBilling ESPF event handling API documentation generated by <a href="https://www.apigen.org">ApiGen v7.0.0-alpha.4</a>
+		</div>
+	</div>
+
+	<div class="layout-rest">
+		<div class="navbar"></div>
+	</div>
+</body>
+</html>

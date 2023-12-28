@@ -6,9 +6,9 @@
 
 namespace Porta\Test;
 
-use Porta\Psr14\Auth\AuthCustom;
-use Porta\Psr14\Event;
-use Porta\Psr14\EventException;
+use Porta\Psr14Event\Auth\AuthCustom;
+use Porta\Psr14Event\Event;
+use Porta\Psr14Event\EventException;
 use GuzzleHttp\Psr7\ServerRequest;
 
 /**

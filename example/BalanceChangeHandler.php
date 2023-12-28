@@ -6,10 +6,10 @@
  * Example of Event handler
  */
 
-namespace Porta\Psr14\Example;
+namespace Porta\Psr14Event\Example;
 
-use Porta\Psr14\Event;
-use Porta\Psr14\EventHandlerBase;
+use Porta\Psr14Event\Event;
+use Porta\Psr14Event\EventHandlerBase;
 
 /**
  * Example to handle two event types

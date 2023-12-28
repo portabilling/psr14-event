@@ -6,7 +6,7 @@
 
 namespace Porta\Test;
 
-use Porta\Psr14\Event;
+use Porta\Psr14Event\Event;
 use GuzzleHttp\Psr7\ServerRequest;
 
 /**

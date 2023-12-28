@@ -6,7 +6,7 @@
 
 namespace Porta\Test;
 
-use Porta\Psr14\Auth\Auth;
+use Porta\Psr14Event\Auth\Auth;
 
 /**
  * test wrapper for abstract class Auth

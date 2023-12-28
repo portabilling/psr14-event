@@ -7,9 +7,9 @@
 namespace Porta\Test;
 
 use Psr\EventDispatcher\ListenerProviderInterface;
-use Porta\Psr14\Dispatcher;
-use Porta\Psr14\Event;
-use Porta\Psr14\EventHandlerBase;
+use Porta\Psr14Event\Dispatcher;
+use Porta\Psr14Event\Event;
+use Porta\Psr14Event\EventHandlerBase;
 
 /**
  * Tests class for  Dispatcher

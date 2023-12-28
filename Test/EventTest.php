@@ -6,9 +6,9 @@
 
 namespace Porta\Test;
 
-use Porta\Psr14\Event;
+use Porta\Psr14Event\Event;
 use GuzzleHttp\Psr7\ServerRequest;
-use Porta\Psr14\EventException;
+use Porta\Psr14Event\EventException;
 
 /**
  * Test class for Event

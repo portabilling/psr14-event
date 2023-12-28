@@ -7,7 +7,7 @@ API docs: https://docs.portaone.com
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" colors="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
   <coverage processUncoveredFiles="true">
     <include>
-      <directory suffix=".php">../Porta/Psr14</directory>
+      <directory suffix=".php">../Porta/Psr14Event</directory>
     </include>
     <exclude>
     </exclude>

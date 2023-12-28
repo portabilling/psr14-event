@@ -11,13 +11,13 @@
  * Version 1 events and basic auth.
  */
 
-namespace Porta\Psr14\Example;
+namespace Porta\Psr14Event\Example;
 
-use Porta\Psr14\Event;
-use Porta\Psr14\Auth\AuthBasic;
-use Porta\Psr14\EventListenerProvider;
-use Porta\Psr14\Dispatcher;
-use Porta\Psr14\EventException;
+use Porta\Psr14Event\Event;
+use Porta\Psr14Event\Auth\AuthBasic;
+use Porta\Psr14Event\EventListenerProvider;
+use Porta\Psr14Event\Dispatcher;
+use Porta\Psr14Event\EventException;
 use GuzzleHttp\Psr7\ServerRequest;
 
 // This need to eb adjusted to correct 'vendor' dir path

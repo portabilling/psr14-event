@@ -1,6 +1,6 @@
 parameters:
   # string[], passed as arguments in CLI, e.g. ['src']
-  paths: ['Porta/psr14', 'example']
+  paths: ['Porta/psr14Event', 'example']
 
   # string[], --include in CLI, included files mask, e.g. ['*.php']
   include: ['*.php']

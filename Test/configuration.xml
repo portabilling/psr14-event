@@ -4,12 +4,15 @@ PortaOne Billing JSON API wrapper
 API docs: https://docs.portaone.com
 (c) Alexey Pavlyuts <alexey@pavlyuts.ru>
 -->
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" colors="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-  <coverage processUncoveredFiles="true">
-    <include>
-      <directory suffix=".php">../Porta/Psr14Event</directory>
-    </include>
-    <exclude>
-    </exclude>
-  </coverage>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         colors="false" 
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+         convertDeprecationsToExceptions="true">
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">../Porta/Psr14Event</directory>
+        </include>
+        <exclude>
+        </exclude>
+    </coverage>
 </phpunit>

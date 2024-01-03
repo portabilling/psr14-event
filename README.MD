@@ -24,12 +24,12 @@ Please, review the [changelog](https://github.com/portabilling/psr14-events/blob
 
 ## Dependencies
 Composer dependencies:
-- php: ^7.4|^8.0|^8.1|^8.2
+- php: ^7.4|^8.0|^8.1|^8.2|^8.3
 - psr/event-dispatcher: ^1.0.0
 - psr/http-message: ^2.0
 
 ## Testing
-Tested with PHPUnit 9.6 on php 7.4 to 8.2, 100% coverage, which does not mean everything will work as intended.
+Tested with PHPUnit 9.6 on php 7.4 to 8.3, 100% coverage, which does not mean everything will work as intended.
 
 Current testing and compatibility status check on [Github flows](https://github.com/portabilling/psr14-events/actions/workflows/Compatibility.yml)
 

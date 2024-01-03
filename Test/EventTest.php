@@ -115,6 +115,13 @@ EOT;
         $this->assertFalse($e->isMatchPatterns(['*/*/*', 'Subscriber/created']));
     }
 
+    public function testWrongMEthod()
+    {
+        $this->expectException(EventException::class);
+        $this->expectExceptionMessage('Method GET is not allowed');
+        new Event(new ServerRequest('GET', '/'));
+    }
+
     public function testNoJsonException()
     {
         $this->expectException(EventException::class);

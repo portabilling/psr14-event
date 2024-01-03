@@ -212,6 +212,9 @@ class Event implements StoppableEventInterface, \ArrayAccess
     // Protected methods
     protected function parseData(): void
     {
+        if ('POST' != $this->request->getMethod()) {
+            throw new EventException("Method " . $this->request->getMethod() . " is not allowed", 400);
+        }
         if (null === ($requestData = json_decode((string) $this->request->getBody(), true))) {
             throw new EventException("Can't decode request body as JSON, body: '" . (string) $this->request->getBody() . "'", 400);
         }

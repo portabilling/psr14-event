@@ -229,6 +229,7 @@ class Event implements StoppableEventInterface, \ArrayAccess
         return isset($this->vars[$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->vars[$offset];

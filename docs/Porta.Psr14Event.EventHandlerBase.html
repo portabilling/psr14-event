@@ -124,7 +124,7 @@ slashes.
 Example: event type Subscriber/Created will use method to handle:</p>
 <pre><code>protected function eventSubscriberCreated(Event $event):void
 </code></pre>
-<p>Function <em>must</em> call $event-&gt;onSuccess() or $event-&gt;onFailure() to report the
+<p>Function <em>must</em> call $event-&gt;onSuccess() or $event-&gt;onProcessed() to report the
 result of event processing</p>
 <p>See <a href="https://github.com/portabilling/psr14-events/tree/master/example">usage example</a></p>
 </div>

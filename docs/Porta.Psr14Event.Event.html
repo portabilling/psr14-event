@@ -125,7 +125,7 @@
 	<div class="description"><p>PSR-14 Event object/class</p>
 <p>This obect is mutable and will pass over all handlers, assuming
 handlers will process event and register зrocessing result with onSuccess()
-or onFailure() methods.</p>
+or onProcessed() methods.</p>
 <p>Event vars are read-only and may be accessed either as array keyed values
 and as properties.</p>
 </div>
@@ -341,7 +341,7 @@ the hahdler will be the last one and Event will stop it's propagation.</p>
 
 	<div class="expandable-expandedView">
 	<div class="description"><p>Event handler must call this to register processing success</p>
-<p>The same meaning like to call onFailure(200), as 200 is the success code</p>
+<p>The same meaning like to call onProcessed(200), as 200 is the success code</p>
 </div>
 
 
@@ -353,7 +353,7 @@ the hahdler will be the last one and Event will stop it's propagation.</p>
 			<a href="#_onSuccess">#</a>
 		</td>
 	</tr>
-	<tr class="expandable collapsed" data-order="onFailure" id="_onFailure">
+	<tr class="expandable collapsed" data-order="onProcessed" id="_onProcessed">
 			<td class="table-cell table-shrink">
 				<code class="nowrap">
 					
@@ -364,17 +364,16 @@ the hahdler will be the last one and Event will stop it's propagation.</p>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#119-147" title="Go to source code">onFailure</a>(<span>int <var>$code</var></span>): void</code>
+				<code><a href="source-Porta.psr14Event.Event.html#119-146" title="Go to source code">onProcessed</a>(<span>int <var>$code</var></span>): void</code>
 
 
 	<div class="expandable-collapsedView">
-		Event handler must call this to register processing failure
+		Event handler must call this to register processing result
 	</div>
 
 	<div class="expandable-expandedView">
-	<div class="description"><p>Event handler must call this to register processing failure</p>
-<p>Call of onFailure(200) hs the same means as onSuccess(), as 200 is the
-success code.</p>
+	<div class="description"><p>Event handler must call this to register processing result</p>
+<p>The code given will be passed to PortaOne as http result code</p>
 <p>See <a href="https://docs.portaone.com/docs/mr105-receiving-provisional-events">Portaone documentation</a>
 about return code meaning and ESPF action on it:</p>
 <p>Once a response is received, the ESPF acts as follows:</p>
@@ -406,7 +405,7 @@ multiple times.</li>
 	</div>
 			</td>
 		<td class="table-anchor">
-			<a href="#_onFailure">#</a>
+			<a href="#_onProcessed">#</a>
 		</td>
 	</tr>
 	<tr class="expandable collapsed" data-order="getRequest" id="_getRequest">
@@ -420,7 +419,7 @@ multiple times.</li>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#149-158" title="Go to source code">getRequest</a>(): <a href="Psr.Http.Message.RequestInterface.html"><span title="Psr\Http\Message\RequestInterface">RequestInterface</span></a></code>
+				<code><a href="source-Porta.psr14Event.Event.html#148-157" title="Go to source code">getRequest</a>(): <a href="Psr.Http.Message.RequestInterface.html"><span title="Psr\Http\Message\RequestInterface">RequestInterface</span></a></code>
 
 
 	<div class="expandable-collapsedView">
@@ -451,7 +450,7 @@ multiple times.</li>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#160-172" title="Go to source code">getBestResult</a>(<span>int <var>$notFoundCode</var> = <span class="php-num">404</span></span>): int</code>
+				<code><a href="source-Porta.psr14Event.Event.html#159-171" title="Go to source code">getBestResult</a>(<span>int <var>$notFoundCode</var> = <span class="php-num">404</span></span>): int</code>
 
 
 	<div class="expandable-collapsedView">
@@ -486,7 +485,7 @@ multiple times.</li>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#174-186" title="Go to source code">getWorstResult</a>(<span>int <var>$notFoundCode</var> = <span class="php-num">404</span></span>): int</code>
+				<code><a href="source-Porta.psr14Event.Event.html#173-185" title="Go to source code">getWorstResult</a>(<span>int <var>$notFoundCode</var> = <span class="php-num">404</span></span>): int</code>
 
 
 	<div class="expandable-collapsedView">
@@ -521,7 +520,7 @@ multiple times.</li>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#188-211" title="Go to source code">isMatchPatterns</a>(<span>string[] <var>$patterns</var></span>): bool</code>
+				<code><a href="source-Porta.psr14Event.Event.html#187-210" title="Go to source code">isMatchPatterns</a>(<span>string[] <var>$patterns</var></span>): bool</code>
 
 
 	<div class="expandable-collapsedView">
@@ -570,7 +569,7 @@ any count of <strong>letters, but not <code>/</code></strong>.</p>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#213-225" title="Go to source code">parseData</a>(): void</code>
+				<code><a href="source-Porta.psr14Event.Event.html#212-224" title="Go to source code">parseData</a>(): void</code>
 
 
 
@@ -596,7 +595,7 @@ any count of <strong>letters, but not <code>/</code></strong>.</p>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#227-231" title="Go to source code">offsetExists</a>(<span><var>$offset</var></span>): bool</code>
+				<code><a href="source-Porta.psr14Event.Event.html#226-230" title="Go to source code">offsetExists</a>(<span><var>$offset</var></span>): bool</code>
 
 
 
@@ -627,7 +626,7 @@ any count of <strong>letters, but not <code>/</code></strong>.</p>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#233-236" title="Go to source code">offsetGet</a>(<span><var>$offset</var></span>)</code>
+				<code><a href="source-Porta.psr14Event.Event.html#232-235" title="Go to source code">offsetGet</a>(<span><var>$offset</var></span>)</code>
 
 
 	<div class="expandable-collapsedView">
@@ -663,7 +662,7 @@ any count of <strong>letters, but not <code>/</code></strong>.</p>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#238-241" title="Go to source code">offsetSet</a>(<span><var>$offset</var></span>, <span><var>$value</var></span>): void</code>
+				<code><a href="source-Porta.psr14Event.Event.html#237-240" title="Go to source code">offsetSet</a>(<span><var>$offset</var></span>, <span><var>$value</var></span>): void</code>
 
 
 
@@ -694,7 +693,7 @@ any count of <strong>letters, but not <code>/</code></strong>.</p>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#243-246" title="Go to source code">offsetUnset</a>(<span><var>$offset</var></span>): void</code>
+				<code><a href="source-Porta.psr14Event.Event.html#242-245" title="Go to source code">offsetUnset</a>(<span><var>$offset</var></span>): void</code>
 
 
 
@@ -725,7 +724,7 @@ any count of <strong>letters, but not <code>/</code></strong>.</p>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#248-252" title="Go to source code">__get</a>(<span><var>$name</var></span>)</code>
+				<code><a href="source-Porta.psr14Event.Event.html#247-251" title="Go to source code">__get</a>(<span><var>$name</var></span>)</code>
 
 
 
@@ -751,7 +750,7 @@ any count of <strong>letters, but not <code>/</code></strong>.</p>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#254-257" title="Go to source code">__isset</a>(<span><var>$name</var></span>)</code>
+				<code><a href="source-Porta.psr14Event.Event.html#253-256" title="Go to source code">__isset</a>(<span><var>$name</var></span>)</code>
 
 
 
@@ -777,7 +776,7 @@ any count of <strong>letters, but not <code>/</code></strong>.</p>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#259-262" title="Go to source code">__set</a>(<span><var>$name</var></span>, <span><var>$value</var></span>)</code>
+				<code><a href="source-Porta.psr14Event.Event.html#258-261" title="Go to source code">__set</a>(<span><var>$name</var></span>, <span><var>$value</var></span>)</code>
 
 
 
@@ -803,7 +802,7 @@ any count of <strong>letters, but not <code>/</code></strong>.</p>
 			</td>
 
 			<td class="table-cell">
-				<code><a href="source-Porta.psr14Event.Event.html#264-267" title="Go to source code">__unset</a>(<span><var>$name</var></span>)</code>
+				<code><a href="source-Porta.psr14Event.Event.html#263-266" title="Go to source code">__unset</a>(<span><var>$name</var></span>)</code>
 
 
 

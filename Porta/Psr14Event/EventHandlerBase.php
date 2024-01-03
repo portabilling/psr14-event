@@ -16,7 +16,7 @@ namespace Porta\Psr14Event;
  * ```
  * protected function eventSubscriberCreated(Event $event):void
  * ```
- * Function *must* call $event->onSuccess() or $event->onFailure() to report the
+ * Function *must* call $event->onSuccess() or $event->onProcessed() to report the
  * result of event processing
  *
  * See [usage example](https://github.com/portabilling/psr14-events/tree/master/example)
@@ -79,7 +79,7 @@ class EventHandlerBase
     public function __call($name, $arguments)
     {
         if (isset($arguments[0]) && ($arguments[0] instanceof Event)) {
-            $arguments[0]->onFailure($this->notFoundCode);
+            $arguments[0]->onProcessed($this->notFoundCode);
         }
     }
 }

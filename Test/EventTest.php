@@ -69,7 +69,7 @@ EOT;
 
         $this->assertEquals($e, $e->stopOnFirstGood());
         $this->assertFalse($e->isPropagationStopped());
-        $e->onFailure(501);
+        $e->onProcessed(501);
         $this->assertFalse($e->isPropagationStopped());
         $this->assertEquals(501, $e->getBestResult());
         $this->assertEquals(501, $e->getWorstResult());
@@ -85,11 +85,11 @@ EOT;
         $this->assertEquals(501, $e->getWorstResult(601));
 
         $e = new Event($r);
-        $e->onFailure(404);
-        $e->onFailure(501);
-        $e->onFailure(401);
+        $e->onProcessed(404);
+        $e->onProcessed(501);
+        $e->onProcessed(401);
         $e->onSuccess();
-        $e->onFailure(444);
+        $e->onProcessed(444);
         $this->assertFalse($e->isPropagationStopped());
         $this->assertEquals(200, $e->getBestResult());
         $this->assertEquals(501, $e->getWorstResult());

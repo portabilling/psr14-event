@@ -19,6 +19,6 @@ class EventHandlerBaseWrapper extends EventHandlerBase
 
     protected function eventRoutedKnown(Event $event): void
     {
-        $event->onFailure(444);
+        $event->onProcessed(444);
     }
 }

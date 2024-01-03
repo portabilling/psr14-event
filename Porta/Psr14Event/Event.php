@@ -14,7 +14,7 @@ use Psr\EventDispatcher\StoppableEventInterface;
  *
  * This obect is mutable and will pass over all handlers, assuming
  * handlers will process event and register зrocessing result with onSuccess()
- * or onFailure() methods.
+ * or onProcessed() methods.
  *
  * Event vars are read-only and may be accessed either as array keyed values
  * and as properties.
@@ -106,7 +106,7 @@ class Event implements StoppableEventInterface, \ArrayAccess
     /**
      * Event handler must call this to register processing success
      *
-     * The same meaning like to call onFailure(200), as 200 is the success code
+     * The same meaning like to call onProcessed(200), as 200 is the success code
      *
      * @return void
      * @api
@@ -117,10 +117,9 @@ class Event implements StoppableEventInterface, \ArrayAccess
     }
 
     /**
-     * Event handler must call this to register processing failure
+     * Event handler must call this to register processing result
      *
-     * Call of onFailure(200) hs the same means as onSuccess(), as 200 is the
-     * success code.
+     * The code given will be passed to PortaOne as http result code
      *
      * See [Portaone documentation](https://docs.portaone.com/docs/mr105-receiving-provisional-events)
      * about return code meaning and ESPF action on it:
@@ -141,9 +140,9 @@ class Event implements StoppableEventInterface, \ArrayAccess
      * @return void
      * @api
      */
-    public function onFailure(int $code): void
+    public function onProcessed(int $code): void
     {
-        $this->result[] = $code > 400 ? $code : 400;
+        $this->result[] = $code;
     }
 
     /**
